@@ -1,0 +1,25 @@
+services:
+  telegram-bot-api:
+    image: aiogram/telegram-bot-api:latest
+    container_name: telegram-bot-api
+    env_file:
+      - path: .env
+        required: true
+    volumes:
+      - telegram-bot-api-data:/var/lib/telegram-bot-api
+    ports:
+      - "8081:8081"
+
+  telegram-bot-api-proxy:
+    build: .
+    container_name: telegram-bot-api-proxy
+    env_file:
+      - path: .env
+        required: true
+    volumes:
+      - telegram-bot-api-data:/var/lib/telegram-bot-api
+    ports:
+      - "22415:3000"
+
+volumes:
+  telegram-bot-api-data:
