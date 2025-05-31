@@ -19,7 +19,7 @@ services:
     volumes:
       - telegram-bot-api-data:/var/lib/telegram-bot-api
     ports:
-      - "22415:3000"
+      - "3000:3000"
 
 volumes:
   telegram-bot-api-data:
