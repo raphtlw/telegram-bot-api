@@ -7,6 +7,7 @@ services:
         required: true
     volumes:
       - telegram-bot-api-data:/var/lib/telegram-bot-api
+    restart: always
 
   telegram-bot-api-proxy:
     image: ghcr.io/raphtlw/telegram-bot-api:main
@@ -16,6 +17,7 @@ services:
         required: true
     volumes:
       - telegram-bot-api-data:/var/lib/telegram-bot-api
+    restart: always
 
 volumes:
   telegram-bot-api-data:
