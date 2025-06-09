@@ -20,6 +20,10 @@ services:
         required: true
     volumes:
       - telegram-bot-api-data:/var/lib/telegram-bot-api
+    develop:
+      watch:
+        - path: .
+          action: rebuild
     restart: always
     ports:
       - "3000:3000"
