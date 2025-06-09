@@ -7,10 +7,12 @@ services:
         required: true
     volumes:
       - telegram-bot-api-data:/var/lib/telegram-bot-api
+    restart: always
     ports:
       - "8081:8081"
 
   telegram-bot-api-proxy:
+    image: ghcr.io/raphtlw/telegram-bot-api:main
     build: .
     container_name: telegram-bot-api-proxy
     env_file:
@@ -18,6 +20,7 @@ services:
         required: true
     volumes:
       - telegram-bot-api-data:/var/lib/telegram-bot-api
+    restart: always
     ports:
       - "3000:3000"
 
